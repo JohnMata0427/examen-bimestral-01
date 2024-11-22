@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Biblioteca Aleatoria</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <main>
+    <section class="flex flex-col items-center justify-center">
+      <ion-label>Se generan 10 libros aleatorios</ion-label>
+      <div class="flexgap-2">
+        <ion-button (click)="saveBooks()" color="danger font-bold"
+          >Guardar libros</ion-button
+        >
+        <ion-button (click)="reloadPage()" color="warning font-bold"
+          >Recargar libros</ion-button
+        >
+      </div>
+    </section>
+
+    <ion-alert
+      [isOpen]="openAlert"
+      header="Información"
+      [message]="message"
+      [buttons]="['OK']"
+      (didDismiss)="setOpenAlert(false)"
+    ></ion-alert>
+
+    <ion-loading
+      message="Cargando libros..."
+      spinner="circles"
+      [duration]="500"
+      *ngIf="loading"
+    ></ion-loading>
+    <section class="grid grid-cols-2 gap-2" *ngIf="!loading">
+      <ion-card *ngFor="let book of books; let i = index" class="rounded-xl">
+        <img
+          [alt]="book.title"
+          [src]="images[i]"
+          class="w-full h-56 object-cover bg-white"
+        />
+        <ion-card-header>
+          <ion-card-title> {{ book.title }} </ion-card-title>
+          <ion-card-subtitle>Autores: {{ book.authors }}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </section>
+  </main>
+</ion-content>
