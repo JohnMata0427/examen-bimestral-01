@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Examen Bimestral - John Mata</string>
+    <string name="title_activity_main">Examen Bimestral - John Mata</string>
+    <string name="package_name">com.johnmata.examenbimetral</string>
+    <string name="custom_url_scheme">com.johnmata.examenbimetral</string>
+</resources>
