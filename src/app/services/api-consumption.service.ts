@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import firebase from 'firebase/compat/app';
 
 export interface Book {
   id: string;
@@ -47,19 +46,22 @@ export class ApiConsumptionService {
   }
 
   async saveBooksGenerated(books: Book[]): Promise<any> {
-    const batch: firebase.firestore.WriteBatch = this.angularFirestore.firestore.batch();
-
     try {
-      books.forEach((book) => {
-        const bookRef = this.angularFirestore.collection('books').doc().ref;
-        batch.set(bookRef, book);
-      });
-
-      await batch.commit();
+      if (books.length > 1) {
+        const batch = this.angularFirestore.firestore.batch();
+  
+        books.forEach((book) => {
+          const bookRef = this.angularFirestore.collection('books').doc().ref;
+          batch.set(bookRef, book);
+        });
+  
+        await batch.commit();
+      } else {
+        await this.angularFirestore.collection('books').add(books[0])
+      }
     } catch (error) {
-      console.log(error);
-      return 'Error al guardar el libro';
+      return 'Ocurrio un error al guardar los datos';
     }
-    return 'Libro/s guardado/s correctamente';
+    return 'Información guardada correctamente';
   }
 }

@@ -39,6 +39,9 @@
             <ion-card-title class="text-xl font-bold"> {{ book.title }} </ion-card-title>
             <ion-card-subtitle>Autores: {{ book.authors }}</ion-card-subtitle>
           </ion-card-header>
+          <ion-card-content class="mx-auto">
+            <ion-button color="danger" (onclick)="saveBooks([book])"> Guardar libro </ion-button>
+          </ion-card-content>
         </ion-card>
       </section>
     </ng-template>

@@ -33,7 +33,7 @@ export class HomePage {
     this.images = [...this.images, ...robotImages];
   }
 
-  getBooks(): void {
+  getBooksInformation(): void {
     this.apiConsumptionService.getRandomBooks(15).subscribe({
       next: ({ results }: { results: any[] }) => {
         this.books = results.map((book: any, index: number) => {
@@ -57,7 +57,7 @@ export class HomePage {
     this.images = [];
     this.getRobotImages();
     this.getDogImages();
-    this.getBooks();
+    this.getBooksInformation();
   }
 
   async saveBooks(books: Book[]): Promise<void> {
