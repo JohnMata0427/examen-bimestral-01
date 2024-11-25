@@ -14,12 +14,12 @@
 
 <h3 align="center">📲💻 Vista Previa de la App</h3>
 
-![image](https://github.com/user-attachments/assets/980b5598-1e52-4610-8147-f2801e47f2db)
+![app](https://github.com/user-attachments/assets/b49dc717-1e14-422d-9bdd-852fcf3aa594)
 
 <h3 align="center">▶️ Descargar la App</h3>
 
 <div align="center">
-  <a href="https://github.com/JohnMata0427/prueba-bimestral-01/releases/tag/Release-v1">
+  <a href="https://github.com/JohnMata0427/examen-bimestral-01/releases/download/release/app-debug.apk">
     <img src="https://img.shields.io/badge/Descargar%20para%20Android-75BC54.svg?logo=android&logoColor=white">
   </a>
 </div>
